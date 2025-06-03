@@ -1,0 +1,25 @@
+Project Management SQL Commands
+
+1. create database projectmanagement;
+
+2. use projectmanagement;
+
+3. create table Project (Id int primary key, ProjectName varchar(100),
+    Description text, Start_date date,
+    Status enum('Started', 'Dev', 'Build', 'Test', 'Deployed'));
+
+4. create table Employee (Id int primary key, Name varchar(100),
+    Designation varchar(100), Gender varchar(50),
+    Salary float, Project_id int,
+    foreign key(Project_id) references Project(Id));
+
+5. create table Task (Task_id int primary key, Task_name varchar(100),
+    Project_id int, Employee_id int, Status enum('Assigned', 'Started', 'Completed'),
+    foreign key(Project_id) references Project(Id) on delete cascade,
+    foreign key(Employee_id) references Employee(Id));
+
+6. desc Project;
+
+7. desc Employee;
+
+8. desc Task;
